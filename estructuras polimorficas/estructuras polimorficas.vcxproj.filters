@@ -13,10 +13,51 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="estructuras">
+      <UniqueIdentifier>{5bd32cb2-a0fe-448e-943c-7a9dcf84643a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="estructuras\objeto base">
+      <UniqueIdentifier>{371dabae-b0f6-4245-9b4d-2eb5f5185579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="estructuras\vector">
+      <UniqueIdentifier>{2027306a-1660-4463-b378-d5a82f74a3b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="estructuras\lista">
+      <UniqueIdentifier>{7547c9f1-50be-4dd9-af0e-d98ae34149bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="estructuras\lista\nodo">
+      <UniqueIdentifier>{2972b34f-3739-4d1f-9233-d95d327e9f4d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>Archivos de encabezado</Filter>
+    <ClCompile Include="objetoBase.cpp">
+      <Filter>estructuras\objeto base</Filter>
     </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="nodo.cpp">
+      <Filter>estructuras\lista\nodo</Filter>
+    </ClCompile>
+    <ClCompile Include="listaEnlazada.cpp">
+      <Filter>estructuras\lista</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.cpp">
+      <Filter>estructuras\vector</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="objetoBase.h">
+      <Filter>estructuras\objeto base</Filter>
+    </ClInclude>
+    <ClInclude Include="nodo.h">
+      <Filter>estructuras\lista\nodo</Filter>
+    </ClInclude>
+    <ClInclude Include="listaEnlazada.h">
+      <Filter>estructuras\lista</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>estructuras\vector</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
