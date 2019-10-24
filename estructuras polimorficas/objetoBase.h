@@ -1,8 +1,10 @@
 #pragma once
 class objetoBase
 {
+public:
 
+	virtual ~objetoBase() {
 
-	virtual ~objetoBase()=0;
+	}
 };
 
