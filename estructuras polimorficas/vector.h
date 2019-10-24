@@ -8,23 +8,17 @@ protected:
 public:
 	vector(size_t longitud=15);
 
-
-
-	size_t getInsertados() const;
-	size_t getLongitud() const;
-
-	void insertar(objetoBase* nuevo);
-	bool eliminar(const size_t& posicion);
-
-	objetoBase* obtener(size_t posicion);
+	size_t getInsertados();
+	size_t getLongitud();
 
 	void redimensionar(size_t tam);
 
-private:
+	bool eliminar(const size_t& posicion);
+	objetoBase* obtener(size_t posicion);
 
-	//mueve los elementos posteriores hacia atras desde la posicion,
-	//util cuando se elimina en el inicio o el medio
-	void mover(size_t posicion);
+protected:
+
+	void insertar(objetoBase* nuevo);
 	
 public:
 	~vector();

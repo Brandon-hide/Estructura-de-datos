@@ -13,28 +13,38 @@ vector::vector(size_t longitud) :
 }
 
 
-size_t vector::getInsertados() const {
+size_t vector::getInsertados(){
 	return insertados;
 }
-size_t vector::getLongitud() const {
+size_t vector::getLongitud() {
 	return longitud;
 }
 
 
 
+void vector::redimensionar(size_t tam) {
+	size_t longitudNueva = longitud + tam;
+	objetoBase** nuevo = new objetoBase * [longitudNueva];
 
-
-
-void vector::insertar(objetoBase* nuevo) {
-	if (insertados == longitud) {
-		redimensionar(longitud);
+	for (size_t i = 0; i < longitudNueva; i++) {
+		nuevo[i] = obtener(i);
 	}
-	elementos[insertados++] = nuevo;
+
+	longitud = longitudNueva;
+	delete[] elementos;
+	elementos = nuevo;
 }
+
+
+
 bool vector::eliminar(const size_t& posicion) {
 	if (posicion < insertados){
 		delete elementos[posicion];
-		mover(posicion);
+		//desplazamos los otros campos en caso de que fuera en medio
+		for (size_t i = posicion; i < insertados - 1; i++) {
+			elementos[i] = elementos[i + 1];
+		}
+		elementos[--insertados] = nullptr;
 		return true;
 	}
 	return false;
@@ -44,26 +54,12 @@ objetoBase* vector::obtener(size_t posicion) {
 }
 
 
-
-void vector::redimensionar(size_t tam) {
-	size_t longitudNueva = longitud + tam;
-	objetoBase** nuevo = new objetoBase * [longitudNueva];
-
-	for (size_t i = 0; i < longitudNueva; i++){
-		nuevo[i] = obtener(i);
+void vector::insertar(objetoBase* nuevo) {
+	if (insertados == longitud) {
+		redimensionar(longitud);
 	}
-
-	longitud = longitudNueva;
-	delete[] elementos;
-	elementos = nuevo;
+	elementos[insertados++] = nuevo;
 }
-void vector::mover(size_t posicion) {
-	for (size_t i = posicion; i < insertados - 1; i++) {
-		elementos[i] = elementos[i + 1];
-	}
-	elementos[--insertados] = nullptr;
-}
-
 
 
 vector::~vector() {
