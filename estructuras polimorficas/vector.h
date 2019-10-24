@@ -12,7 +12,7 @@ public:
 
 	size_t getInsertados() const;
 	size_t getLongitud() const;
-
+protected:
 	void insertar(objetoBase* nuevo);
 	bool eliminar(const size_t& posicion);
 
