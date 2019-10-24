@@ -12,6 +12,11 @@ listaEnlazada::listaEnlazada() :
 
 }
 
+
+size_t listaEnlazada::getInsertados() {
+	return insertados;
+}
+
 nodo* listaEnlazada::getNodo(size_t posicion) {
 	nodo* actual = inicio;
 	size_t pActual = 0;
@@ -33,25 +38,7 @@ nodo* listaEnlazada::getNodo(size_t posicion) {
 
 }
 
-
-void listaEnlazada::insertarObjeto(objetoBase* elemento) {
-	if (insertados == 0) {
-		inicio = new nodo(elemento);
-		insertados++;
-	}
-	else
-	{
-		getNodo(insertados - 1)->setSiguiente(new nodo(elemento));
-		insertados++;
-	}
-
-
-
-
-}
-
-
-void listaEnlazada::eliminarNodo(size_t posicion) {
+void listaEnlazada::eliminar(size_t posicion) {
 	if (posicion == 0) {
 		nodo* temp = inicio ? inicio->getSiguiente() : nullptr;
 		delete inicio;
@@ -70,11 +57,29 @@ void listaEnlazada::eliminarNodo(size_t posicion) {
 
 }
 
+void listaEnlazada::insertar(objetoBase* elemento) {
+	if (insertados == 0) {
+		inicio = new nodo(elemento);
+		insertados++;
+	}
+	else
+	{
+		getNodo(insertados - 1)->setSiguiente(new nodo(elemento));
+		insertados++;
+	}
 
-size_t listaEnlazada::getInsertados() {
-	return insertados;
+
+
+
 }
 
+
+
+listaEnlazada::~listaEnlazada() {
+	while (insertados>0){
+		eliminar(0);
+	}
+}
 
 
 

@@ -10,13 +10,15 @@ private:
 public:
 	listaEnlazada();
 
-	nodo* getNodo(size_t posicion);
-
-	void insertarObjeto(objetoBase* elemento);
-
-	void eliminarNodo(size_t posicion);
-
 	size_t getInsertados();
 
+	nodo* getNodo(size_t posicion);
+	void eliminar(size_t posicion);
 
+protected:
+
+	void insertar(objetoBase* elemento);
+
+public:
+	~listaEnlazada();
 };
